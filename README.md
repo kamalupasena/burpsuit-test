@@ -43,3 +43,12 @@ All cases are deliberately vulnerable: login SQL construction, cross-account pro
 ## Boundaries
 
 Use only on a machine or isolated classroom network where you are authorized to run the lab. Keep it bound to loopback; do not expose it to the internet or a shared network. It contains intentional weaknesses and simple demo credentials.
+
+## Postman collection
+
+Import the files in `postman/` into Postman:
+
+- `Serendib-Pay-Burp-Lab.postman_collection.json`
+- `Serendib-Pay-local.postman_environment.json`
+
+Select the **Serendib Pay local lab** environment. Its base URL defaults to `http://127.0.0.1:8081`. Run **Login as Alice** first; the request test script saves the returned token for authenticated requests. Logout clears the saved token. To use Bob or admin, change the `username` and `password` environment values before running the login request. Requests demonstrating cross-account access, SQL injection, role bypass, and mass assignment are intentionally included for this isolated lab only. The collection's **Lab reset** request clears all active sessions, so log in again afterward.
